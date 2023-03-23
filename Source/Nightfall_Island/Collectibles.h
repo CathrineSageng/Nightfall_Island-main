@@ -13,8 +13,6 @@ UCLASS()
 class NIGHTFALL_ISLAND_API ACollectibles : public AItem
 {
 	GENERATED_BODY()
-public:
-	void Equip(USceneComponent* InParent);
 
 protected:
 	//It is a UFUNCtion macro here, we can just not see it. We can't have UFUNCTION, we will get an compilation error. 

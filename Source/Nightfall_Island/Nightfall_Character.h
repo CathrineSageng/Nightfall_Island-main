@@ -75,7 +75,7 @@ protected:
 	/** Called for shooting input */
 	void Shoot();
 
-	void Equip();
+	
 
 public:
 	// Called every frame
@@ -83,6 +83,8 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	void Equip();
 
 	FORCEINLINE void SetOverlappingItem(AItem* Item) { OverlappingItem = Item; }
 };

@@ -173,13 +173,10 @@ void ANightfall_Character::Shoot()
 
 void ANightfall_Character::Equip()
 {
-	/*ACollectibles* OverlappingCollectibles = Cast<ACollectibles>(OverlappingItem);
-	if (OverlappingCollectibles)
+	if (OverlappingItem)
 	{
-		OverlappingCollectibles->Equip(GetMesh());
-		SetActorHiddenInGame(true);
-	}*/
-	SetActorHiddenInGame(true);
+		OverlappingItem->SetActorHiddenInGame(true);
+	}
 }
 
 // Called to bind functionality to input
@@ -196,7 +193,7 @@ void ANightfall_Character::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 	//Equip
 	UE_LOG(LogTemp, Warning, TEXT("Binding Equip actions!"));
 	EnhancedInputComponent->BindAction(IA_Equip, ETriggerEvent::Triggered, this, &ANightfall_Character::Equip);
-	EnhancedInputComponent->BindAction(IA_Equip, ETriggerEvent::Completed, this, &ANightfall_Character::Equip);
+	
 
 	//Moving
 	UE_LOG(LogTemp, Warning, TEXT("Binding Move action!"));

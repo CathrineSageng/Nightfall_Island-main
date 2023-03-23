@@ -11,7 +11,7 @@ AItem::AItem()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	ItemMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ItemMeshComponent"));
+	ItemMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ItemMesh"));
 	RootComponent = ItemMesh;
 
 	Sphere = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere"));
@@ -34,6 +34,8 @@ void AItem::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* Ot
 	if (Nightfall_Character)
 	{
 		Nightfall_Character->SetOverlappingItem(this);
+	
+		
 	}
 	const FString OtherActorName = OtherActor->GetName();
 	if (GEngine)

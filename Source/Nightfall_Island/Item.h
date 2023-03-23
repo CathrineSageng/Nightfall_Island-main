@@ -6,7 +6,6 @@
 #include "GameFramework/Actor.h"
 #include "Item.generated.h"
 
-
 class USphereComponent;
 
 UCLASS()
@@ -33,8 +32,7 @@ protected:
 	UFUNCTION()
 	virtual void OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Item)
 	UStaticMeshComponent* ItemMesh;
 
 public:	
