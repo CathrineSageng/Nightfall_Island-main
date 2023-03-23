@@ -13,6 +13,7 @@
 #include "WoodNode.h"
 #include "Nightfall_HUD.h"
 #include "Math/UnrealMathUtility.h"
+#include "Collectibles.h"
 
 // Sets default values
 ANightfall_Character::ANightfall_Character()
@@ -170,6 +171,17 @@ void ANightfall_Character::Shoot()
 	}
 }
 
+void ANightfall_Character::Equip()
+{
+	/*ACollectibles* OverlappingCollectibles = Cast<ACollectibles>(OverlappingItem);
+	if (OverlappingCollectibles)
+	{
+		OverlappingCollectibles->Equip(GetMesh());
+		SetActorHiddenInGame(true);
+	}*/
+	SetActorHiddenInGame(true);
+}
+
 // Called to bind functionality to input
 void ANightfall_Character::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
@@ -181,6 +193,11 @@ void ANightfall_Character::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 	EnhancedInputComponent->BindAction(IA_Jump, ETriggerEvent::Triggered, this, &ACharacter::Jump);
 	EnhancedInputComponent->BindAction(IA_Jump, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 	
+	//Equip
+	UE_LOG(LogTemp, Warning, TEXT("Binding Equip actions!"));
+	EnhancedInputComponent->BindAction(IA_Equip, ETriggerEvent::Triggered, this, &ANightfall_Character::Equip);
+	EnhancedInputComponent->BindAction(IA_Equip, ETriggerEvent::Completed, this, &ANightfall_Character::Equip);
+
 	//Moving
 	UE_LOG(LogTemp, Warning, TEXT("Binding Move action!"));
 	EnhancedInputComponent->BindAction(IA_Move, ETriggerEvent::Triggered, this, &ANightfall_Character::Move);

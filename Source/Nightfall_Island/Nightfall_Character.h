@@ -75,6 +75,8 @@ protected:
 	/** Called for shooting input */
 	void Shoot();
 
+	void Equip();
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
